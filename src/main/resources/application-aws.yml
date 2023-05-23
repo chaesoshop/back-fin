@@ -1,0 +1,10 @@
+cloud:
+  aws:
+    s3:
+      bucket: carrot19
+      dir: /
+    region:
+      auto: false
+      static: ap-northeast-2
+    stack:
+      auto: false

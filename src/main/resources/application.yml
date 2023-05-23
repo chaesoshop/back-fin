@@ -1,0 +1,50 @@
+server:
+  port: 8083
+
+spring:
+  main:
+    allow-circular-references: true
+  web:
+    resources:
+      static-locations:
+        - file:///C:\
+  profiles:
+    include:
+      - aws
+      - credentials
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://carrot-db.cnd7nspuidxp.ap-northeast-2.rds.amazonaws.com:3306/carrot
+    username: admin
+    password: passwd1q2w!
+  jpa:
+    properties:
+      hibernate:
+        #show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: update
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
